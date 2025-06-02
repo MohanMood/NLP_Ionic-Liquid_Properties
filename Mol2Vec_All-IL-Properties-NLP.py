@@ -17,25 +17,28 @@ pretrained_models = 'Pretrained_model_path/'
 
 # Load the saved models
 model_viscosity = CatBoostRegressor()
-model_viscosity.load_model(pretrained_models + 'CATBoost_viscosity_model.cbm')
+model_viscosity.load_model(pretrained_models + 'CATBoost_Mol2vec_Viscosity_Model_Stratified.cbm')
 
 model_conductivity = CatBoostRegressor()
-model_conductivity.load_model(pretrained_models + 'CATBoost_conductivity_model.cbm')
+model_conductivity.load_model(pretrained_models + 'CATBoost_Mol2vec_Ionic_Conductivity_model_Stratified.cbm')
 
 model_density = CatBoostRegressor()
-model_density.load_model(pretrained_models + 'CATBoost_density_model.cbm')
+model_density.load_model(pretrained_models + 'CATBoost_Mol2vec-Density_model_Stratified.cbm')
 
 model_surface = CatBoostRegressor()
-model_surface.load_model(pretrained_models + 'CATBoost_surface_model.cbm')
+model_surface.load_model(pretrained_models + 'CATBoost_Mol2vec-ST-Stratified.cbm')
 
 model_toxicity = CatBoostRegressor()
-model_toxicity.load_model(pretrained_models + 'CATBoost_toxicity_model.cbm')
+model_toxicity.load_model(pretrained_models + 'CATBoost_Mol2vec-toxicity-Stratified.cbm')
 
 model_melting = CatBoostClassifier()
-model_melting.load_model(pretrained_models + 'CATBoost_melting-Classification_model.cbm')
+model_melting.load_model(pretrained_models + 'CATBoost_Mol2vec_Melting_Stratified_Classification.cbm')
 
 model_activity_class = CatBoostClassifier()
-model_activity_class.load_model(pretrained_models + 'CATBoost_Water-Activity-Classification_model.cbm')
+model_activity_class.load_model(pretrained_models + 'CATBoost_Mol2vec_Water_Activity_Stratified_Classification.cbm')
+
+model_activity_reg = CatBoostRegressor()
+model_activity_reg.load_model(pretrained_models + 'CATBoost_Mol2vec-Water_Activity_model_Stratified.cbm')
 
 
 # Predictions on the Novel IL Properties without further Training a Models
@@ -118,7 +121,7 @@ results_df = pd.DataFrame({
 })
 
 Output_dir = 'output_directory_path/'
-results_df.to_csv(Output_dir + f'Predictions_filtered_data_IL-LLM.csv', index=False)
+results_df.to_csv(Output_dir + f'Predictions_filtered_data.csv', index=False)
 
 print(" ")
 print("Predictions Done and the Data Was Saved Succesfully")
