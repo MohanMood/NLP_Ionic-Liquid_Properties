@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append('D:/Postdoc-Work/Manuacripts/NLP-Organic_Solvents-Properties/Green Chemistry/Github_GC/iSIM_Clustering')
+sys.path.append('path_of_iSIM/iSIM_Clustering')
 
 import math
 import numpy as np
@@ -39,8 +39,8 @@ import warnings
 from IPython.display import display, HTML
 
 # Reading Ionic Liquids Viscosity Data
-dataset_csv = 'IL-Viscosity_Mol2vec_Atom-Count'
-input_dir = 'G:/D-Drive/Postdoc-Work/Manuacripts/IL-Properties_NLP/GitHub_IL-NLP/Properties_iSIM/Dataset/'
+dataset_csv = 'IL-Viscosity'
+input_dir = 'path_of_dataset/Dataset/'
 dataset = pd.read_csv(input_dir + f'{dataset_csv}.csv', encoding= 'unicode_escape')
 print("Viscosity Dataset:", dataset.shape)
 
@@ -247,15 +247,8 @@ test_df = pd.DataFrame({
 combined_df = pd.concat([train_df, val_df, test_df], ignore_index=True)
 
 # Save to CSV
-combined_df.to_csv('CATBoost_Mol2vec-Viscosity-Stratified.csv', index=False)
+combined_df.to_csv('CATBoost_Mol2vec-Viscosity_pred.csv', index=False)
 
 # Save the trained model to a file
 cat_model.save_model('CATBoost_Mol2vec_Viscosity_Model_Stratified.cbm')
 print("Trained Viscosity Model Saved Succesfully")
-
-
-
-
-
-
-
